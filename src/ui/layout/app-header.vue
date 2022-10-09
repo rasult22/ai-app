@@ -1,0 +1,39 @@
+<script setup lang="ts">
+const title = 'Логотип'
+</script>
+
+<template>
+  <div class="app-header">
+    <q-header bordered class="bg-white text-primary">
+      <q-toolbar>
+        <q-toolbar-title>
+          <span class="app-header__title">
+            {{ title }}
+          </span>
+        </q-toolbar-title>
+        <svg @click="$emit('profile-clicked')" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="10" r="3" stroke="#212121" stroke-linecap="round"/>
+          <circle cx="12" cy="12" r="9" stroke="#212121"/>
+          <path d="M18 18.7059C17.6461 17.6427 16.8662 16.7033 15.7814 16.0332C14.6966 15.3632 13.3674 15 12 15C10.6326 15 9.30341 15.3632 8.21858 16.0332C7.13375 16.7033 6.35391 17.6427 6 18.7059" stroke="#212121" stroke-linecap="round"/>
+        </svg>
+      </q-toolbar>
+    </q-header>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+
+.app-header {
+
+  &__title {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: black;
+  }
+}
+
+</style>

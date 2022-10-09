@@ -1,0 +1,7 @@
+{
+  "appId": "our.ai.app",
+  "appName": "Ai App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

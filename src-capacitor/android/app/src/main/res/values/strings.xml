@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ai App</string>
+    <string name="title_activity_main">Ai App</string>
+    <string name="package_name">our.ai.app</string>
+    <string name="custom_url_scheme">our.ai.app</string>
+</resources>
