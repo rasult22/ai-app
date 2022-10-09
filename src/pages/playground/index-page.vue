@@ -4,7 +4,7 @@ import {ref} from 'vue'
 import BaseButton from 'src/ui/buttons/base-button.vue'
 import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
 import BaseInput from 'src/ui/inputs/base-input.vue'
-
+import BaseTagList from 'src/ui/tags/base-tag-list.vue'
 const isOpen = ref(true)
 const text = ref('')
 const isActiveTag = ref(true)
@@ -23,6 +23,8 @@ const isActiveTag = ref(true)
     </BaseBackdrop>
     <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" :activeTag="isActiveTag"></BaseInput>
     <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" activeTag></BaseInput>
+    <BaseTagList>
+    </BaseTagList>
   </div>
 </template>
 

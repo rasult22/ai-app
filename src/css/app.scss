@@ -7,3 +7,7 @@ html {
   --ios-safe-area-left: env(safe-area-inset-left);
   --ios-safe-area-right: env(safe-area-inset-right);
 }
+
+* {
+  box-sizing: border-box;
+}
