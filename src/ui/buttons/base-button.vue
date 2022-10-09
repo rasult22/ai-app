@@ -4,17 +4,19 @@ import { computed, toRefs } from 'vue';
 interface Props {
   yellow?: boolean,
   black?: boolean,
-  green?: boolean
+  green?: boolean,
+  disabled?: boolean
 }
 
 const props = defineProps<Props>()
-const {yellow, black, green} = toRefs(props)
+const {yellow, black, green, disabled} = toRefs(props)
 
 const getAdditionalClasses = computed(() => {
   const classes = {
     'base-button--yellow': yellow?.value,
     'base-button--black': black?.value,
     'base-button--green': green?.value,
+    'base-button--disabled': disabled?.value,
   }
   return classes
 })
@@ -52,6 +54,9 @@ const getAdditionalClasses = computed(() => {
     &--green {
       background-color: #34A853;
       color: white;
+    }
+    &--disabled {
+      opacity: 0.5;
     }
   }
 </style>
