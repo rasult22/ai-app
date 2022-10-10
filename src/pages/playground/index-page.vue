@@ -6,6 +6,8 @@ import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
 import BaseInput from 'src/ui/inputs/base-input.vue'
 import BaseTagList from 'src/ui/tags/base-tag-list.vue'
 import BaseStyleCard from 'src/ui/cards/base-style-card.vue'
+import BaseStyleCardList from 'src/ui/cards/style-card-list.vue'
+
 const isOpen = ref(true)
 const text = ref('')
 const isActiveTag = ref(true)
@@ -22,16 +24,16 @@ const isActiveTag = ref(true)
     <BaseBackdrop v-model:isOpen="isOpen">
       Some content
     </BaseBackdrop>
-    <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" :activeTag="isActiveTag"></BaseInput>
-    <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" activeTag></BaseInput>
-    <BaseTagList>
-    </BaseTagList>
-    <BaseStyleCard :active="isActiveTag"></BaseStyleCard>
     <BaseStyleCard >
       <template #image>
         <span></span>
       </template>
     </BaseStyleCard>
+    <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" :activeTag="isActiveTag"></BaseInput>
+    <BaseInput class="mt" v-model="text" placeholder="Введите что-нибудь" activeTag></BaseInput>
+    <BaseTagList>
+    </BaseTagList>
+    <BaseStyleCardList></BaseStyleCardList>
   </div>
 </template>
 

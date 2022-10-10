@@ -24,10 +24,8 @@ defineProps<Props>()
 .base-style-card {
   &__img {
     position: relative;
-    max-width: 96px;
-    min-width: 96px;
-    min-height: 96px;
-    max-height: 96px;
+    min-width: 100px;
+    min-height: 100px;
     background-color: #D9D9D9;
     border-radius: 12px;
     &--active {
