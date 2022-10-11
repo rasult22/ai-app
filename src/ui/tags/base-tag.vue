@@ -20,6 +20,7 @@ defineProps<Props>()
 
 <style lang="scss" scoped>
 .base-tag {
+  white-space: nowrap;
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;

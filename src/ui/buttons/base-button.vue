@@ -43,7 +43,7 @@ const getAdditionalClasses = computed(() => {
     padding: 14px;
     width: 100%;
     border-radius: 12px;
-
+    border: none;
     &--yellow {
       background-color: #FFD740;
     }

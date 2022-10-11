@@ -1,42 +1,21 @@
 <script lang="ts" setup>
-import {ref} from 'vue'
-import BaseTag, {Tag} from './base-tag.vue'
+import BaseTag, { Tag } from './base-tag.vue'
 
+interface Props {
+  tags: Tag[]
+}
+const emit = defineEmits(['tagSelected'])
 
-const arr =  ref<Tag[]>([
-  {
-    text: 'text',
-    active: false
-  },
-  {
-    text: 'text',
-    active: false
-  },
-  {
-    text: 'text',
-    active: false
-  },
-  {
-    text: 'text',
-    active: false
-  },
-  {
-    text: 'text',
-    active: false
-  },
-  {
-    text: 'text',
-    active: false
-  },
-])
+defineProps<Props>()
+
 const onTagClick = (tag: Tag) => {
-  tag.active = !tag.active
+  emit('tagSelected', tag )
 }
 </script>
 
 <template>
   <div class="base-tag-list">
-    <BaseTag class="base-tag-list__item" :active="item.active" v-for="(item, index) in arr" :key="index" @click="onTagClick(item)">
+    <BaseTag class="base-tag-list__item" :active="item.active" v-for="(item, index) in tags" :key="index" @click="onTagClick(item)">
       {{ item.text }}
     </BaseTag>
   </div>
@@ -46,8 +25,8 @@ const onTagClick = (tag: Tag) => {
 
 .base-tag-list {
   display: flex;
-  padding: 8px 0;
-  overflow: scroll;
+  padding: 10px 0 20px 0;
+  overflow: auto;
   &__item {
     margin-right: 8px;
   }
