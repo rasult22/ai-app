@@ -10,7 +10,6 @@
             <transition name="fade" mode="out-in">
               <component :is="Component" />
             </transition>
-            <LogoutBackdrop />
           </router-view>
         </q-page>
       </q-page-container>
