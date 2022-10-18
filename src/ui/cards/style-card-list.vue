@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import BaseStyleCard from './base-style-card.vue'
-const isHorizontal = false
+const isHorizontal = true
 </script>
 
 <template>

@@ -26,6 +26,7 @@ defineProps<Props>()
     position: relative;
     min-width: 100px;
     min-height: 100px;
+    max-height: 100px;
     background-color: #D9D9D9;
     border-radius: 12px;
     &--active {
