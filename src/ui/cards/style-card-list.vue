@@ -1,21 +1,22 @@
 <script lang="ts" setup>
 import BaseStyleCard from './base-style-card.vue'
-const isHorizontal = true
+
+defineProps<{isHorizontal?: boolean}>()
 </script>
 
 <template>
   <div class="style-card-list">
     <template v-if="isHorizontal">
       <div class="style-card-list__wrapper">
-        <BaseStyleCard class="style-card-list__item" v-for="i in 10" :key="i"></BaseStyleCard>
+        <BaseStyleCard class="style-card-list__item" v-for="i in 12" :key="i"></BaseStyleCard>
       </div>
       <div class="style-card-list__wrapper">
-        <BaseStyleCard class="style-card-list__item" v-for="i in 10" :key="i"></BaseStyleCard>
+        <BaseStyleCard class="style-card-list__item" v-for="i in 12" :key="i"></BaseStyleCard>
       </div>
     </template>
     <template v-else>
       <div class="style-card-list__wrapper--vertical">
-        <BaseStyleCard class="style-card-list__item style-card-list__item--vertical" v-for="i in 10" :key="i"></BaseStyleCard>
+        <BaseStyleCard class="style-card-list__item style-card-list__item--vertical" v-for="i in 12" :key="i"></BaseStyleCard>
       </div>
     </template>
   </div>

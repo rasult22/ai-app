@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import {ref} from 'vue'
 import StyleCardList from 'src/ui/cards/style-card-list.vue'
+import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
+
+const isBackdropOpen = ref(false)
+
 </script>
 
 <template>
@@ -8,11 +13,14 @@ import StyleCardList from 'src/ui/cards/style-card-list.vue'
       <div class="choose-style-block__title">
         Выберите стиль
       </div>
-      <div class="choose-style-block__more-btn">
+      <div @click="isBackdropOpen = true" class="choose-style-block__more-btn">
         Посмотреть все
       </div>
     </div>
-    <StyleCardList class="choose-style-block__cards" />
+    <StyleCardList isHorizontal class="choose-style-block__cards" />
+    <BaseBackdrop v-model:is-open="isBackdropOpen">
+      <StyleCardList class="choose-style-block__cards" />
+    </BaseBackdrop>
   </div>
 </template>
 
