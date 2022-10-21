@@ -10,6 +10,7 @@ import BaseStyleCardList from 'src/ui/cards/style-card-list.vue'
 import BaseImage from 'src/ui/images/base-image.vue'
 
 import RenameBackdropFeature from 'src/features/rename-backdrop/rename-backdrop-feature.vue'
+import DownloadBackdropFeature from 'src/features/download-backdrop/download-backdrop-feature.vue'
 
 const isOpen = ref(false)
 const text = ref('')
@@ -20,6 +21,7 @@ const isActiveTag = ref(true)
   <div class="full-width q-px-md">
     <BaseImage src="https://i.redd.it/2unqm5kmwwn91.jpg" refresh download />
     <RenameBackdropFeature />
+    <DownloadBackdropFeature></DownloadBackdropFeature>
     <BaseButton yellow disabled @click="isActiveTag = !isActiveTag">
       Create
     </BaseButton>
