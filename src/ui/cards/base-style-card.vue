@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 
-interface Props {
-  active?: boolean
+export interface Props {
+  active?: boolean,
+  title: string,
+  href: string
 }
 
 defineProps<Props>()
@@ -11,11 +13,11 @@ defineProps<Props>()
   <div class="base-style-card">
     <div class="base-style-card__img" :class="{'base-style-card__img--active': active}">
       <slot name="image">
-        <img :src="require('src/assets/style.png')" alt="">
+        <img :src="href" alt="">
       </slot>
     </div>
     <div class="base-style-card__title">
-      Title
+      {{ title }}
     </div>
   </div>
 </template>
@@ -29,6 +31,7 @@ defineProps<Props>()
     max-height: 100px;
     background-color: #D9D9D9;
     border-radius: 12px;
+    overflow: hidden;
     &--active {
       border: 2px solid #FFD740;
       &::before {
@@ -41,6 +44,7 @@ defineProps<Props>()
       }
     }
     img {
+      height: 100%;
       width: 100%;
     }
   }

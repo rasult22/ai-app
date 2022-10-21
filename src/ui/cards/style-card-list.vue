@@ -1,22 +1,41 @@
 <script lang="ts" setup>
+import { ref } from 'vue';
 import BaseStyleCard from './base-style-card.vue'
 
-defineProps<{isHorizontal?: boolean}>()
+export type StyleCardItem = {
+  title: string,
+  href: string,
+  active?: boolean
+}
+
+interface Props {
+  items: StyleCardItem[],
+  isHorizontal?: boolean
+}
+defineProps<Props>()
+const emit = defineEmits(['itemSelected'])
+
+const selectedItem = ref<StyleCardItem>()
+const onClick = (item: StyleCardItem) => {
+  if (selectedItem.value) {
+    selectedItem.value.active = false
+  }
+  item.active = true
+  selectedItem.value= item
+  emit('itemSelected', item)
+}
 </script>
 
 <template>
   <div class="style-card-list">
     <template v-if="isHorizontal">
       <div class="style-card-list__wrapper">
-        <BaseStyleCard class="style-card-list__item" v-for="i in 12" :key="i"></BaseStyleCard>
-      </div>
-      <div class="style-card-list__wrapper">
-        <BaseStyleCard class="style-card-list__item" v-for="i in 12" :key="i"></BaseStyleCard>
+        <BaseStyleCard @click="onClick(item)" :title="item.title" :href="item.href" class="style-card-list__item" v-for="(item, i) in items" :key="i" :active="item.active"></BaseStyleCard>
       </div>
     </template>
     <template v-else>
       <div class="style-card-list__wrapper--vertical">
-        <BaseStyleCard class="style-card-list__item style-card-list__item--vertical" v-for="i in 12" :key="i"></BaseStyleCard>
+        <!-- <BaseStyleCard class="style-card-list__item style-card-list__item--vertical" v-for="i in 12" :key="i"></BaseStyleCard> -->
       </div>
     </template>
   </div>

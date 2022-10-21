@@ -1,10 +1,27 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import {watch, ref} from 'vue'
+import {useProcess} from 'src/composables/useProcess'
 import StyleCardList from 'src/ui/cards/style-card-list.vue'
-import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
+// import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
 
 const isBackdropOpen = ref(false)
+const { styles, selectedStyle } = useProcess()
 
+const styleCardItems = ref([])
+
+watch(styles, val => {
+  styleCardItems.value = val.map(x => {
+    return {
+      title: x.name,
+      href: x.file
+    }
+  })
+}, {immediate: true})
+
+
+const onItemSelected = (item: { title: string }) => {
+  selectedStyle.value = item.title
+}
 </script>
 
 <template>
@@ -17,10 +34,10 @@ const isBackdropOpen = ref(false)
         Посмотреть все
       </div>
     </div>
-    <StyleCardList isHorizontal class="choose-style-block__cards" />
-    <BaseBackdrop v-model:is-open="isBackdropOpen">
-      <StyleCardList class="choose-style-block__cards" />
-    </BaseBackdrop>
+    <StyleCardList @itemSelected="onItemSelected" :items="styleCardItems" isHorizontal class="choose-style-block__cards" />
+    <!-- <BaseBackdrop v-model:is-open="isBackdropOpen"> -->
+      <!-- <StyleCardList :items="styleCardItems" class="choose-style-block__cards" /> -->
+    <!-- </BaseBackdrop> -->
   </div>
 </template>
 
