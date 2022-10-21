@@ -23,7 +23,7 @@ const getAdditionalClasses = computed(() => {
 </script>
 
 <template>
-  <button class="base-button" :class="getAdditionalClasses">
+  <button class="base-button" :disabled="disabled" :class="getAdditionalClasses">
     <slot>
     </slot>
   </button>
