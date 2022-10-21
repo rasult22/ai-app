@@ -7,14 +7,17 @@ import BaseInput from 'src/ui/inputs/base-input.vue'
 import BaseTagList from 'src/ui/tags/base-tag-list.vue'
 import BaseStyleCard from 'src/ui/cards/base-style-card.vue'
 import BaseStyleCardList from 'src/ui/cards/style-card-list.vue'
+import BaseImage from 'src/ui/images/base-image.vue'
 
-const isOpen = ref(true)
+const isOpen = ref(false)
 const text = ref('')
 const isActiveTag = ref(true)
 </script>
 
 <template>
   <div class="full-width q-px-md">
+    <BaseImage src="https://i.redd.it/2unqm5kmwwn91.jpg" />
+    <BaseImage src="https://i.redd.it/2unqm5kmwwn91.jpg" refresh download />
     <BaseButton yellow disabled @click="isActiveTag = !isActiveTag">
       Create
     </BaseButton>
