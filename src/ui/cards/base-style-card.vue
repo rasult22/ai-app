@@ -32,6 +32,7 @@ defineProps<Props>()
     background-color: #D9D9D9;
     border-radius: 12px;
     overflow: hidden;
+    border: 2px solid transparent;
     &--active {
       border: 2px solid #FFD740;
       &::before {
@@ -46,6 +47,8 @@ defineProps<Props>()
     img {
       height: 100%;
       width: 100%;
+      border-radius: 12px;
+      max-width: 100px;
     }
   }
   &__title {
