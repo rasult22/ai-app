@@ -2,6 +2,7 @@ import { useAppStore } from 'src/stores/app';
 import { computed, ref } from 'vue';
 const selectedStyle = ref('');
 const requestText = ref('');
+const image = ref('');
 
 export function useProcess() {
   const appStore = useAppStore();
@@ -10,5 +11,6 @@ export function useProcess() {
     styles,
     selectedStyle,
     requestText,
+    image,
   };
 }
