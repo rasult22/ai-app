@@ -3,7 +3,9 @@ import {computed, ref, watch} from 'vue'
 import BaseInput from 'src/ui/inputs/base-input.vue'
 import TagList from 'src/ui/tags/base-tag-list.vue'
 import { Tag } from 'src/ui/tags/base-tag.vue'
+import { useProcess } from 'src/composables/useProcess';
 
+const {requestText: appRequestText} = useProcess()
 const tagItems =  ref<Tag[]>([
   {
     text: 'Подводный город',
@@ -44,6 +46,9 @@ watch(requestText, val => {
       selectedTag.value.active = false
       selectedTag.value = undefined
     }
+
+    // updating process variables
+    appRequestText.value = val
   }
 })
 </script>
