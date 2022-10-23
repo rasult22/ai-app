@@ -46,10 +46,9 @@ watch(requestText, val => {
       selectedTag.value.active = false
       selectedTag.value = undefined
     }
-
     // updating process variables
-    appRequestText.value = val
   }
+  appRequestText.value = val
 })
 </script>
 

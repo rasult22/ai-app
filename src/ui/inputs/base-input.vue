@@ -1,8 +1,10 @@
 <script lang="ts" setup>
 interface Props{
-  activeTag?: boolean
+  activeTag?: boolean,
+  requestText: string
 }
 defineProps<Props>()
+
 </script>
 
 <template>
