@@ -21,10 +21,15 @@ onMounted(async () => {
 })
 const onClick = async () => {
   isLoading.value = true
-  await appStore.generateImage(selectedStyle.value, requestText.value)
-  image.value = appStore.image
+  try {
+    await appStore.generateImage(selectedStyle.value, requestText.value)
+    image.value = appStore.image
+    router.push('/result')
+  } catch(e) {
+    alert('Произошла непредвиденная ошибка! Попробуйте снова')
+    window.location.reload()
+  }
   isLoading.value = false
-  router.push('/result')
 }
 </script>
 
