@@ -2,6 +2,8 @@
 import RequestTextInputFeature from 'src/features/request-text-input/request-text-input-feature.vue'
 import ChooseStyleBlockFeature from 'src/features/choose-style-block/choose-style-block-feature.vue'
 import BaseButton from 'src/ui/buttons/base-button.vue'
+import BaseLoader from 'src/ui/loaders/base-loader.vue'
+
 import {useAppStore} from 'src/stores/app'
 import { onMounted, computed, ref } from 'vue';
 import { useProcess } from 'src/composables/useProcess';
@@ -27,7 +29,8 @@ const onClick = async () => {
 </script>
 
 <template>
-  <div class="main-page full-width q-px-md">
+  <BaseLoader v-if="isLoading" />
+  <div v-else class="main-page full-width q-px-md">
     <RequestTextInputFeature />
     <ChooseStyleBlockFeature />
     <div class="main-page__sticky-btn">

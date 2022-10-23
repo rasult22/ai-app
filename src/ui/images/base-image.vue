@@ -53,9 +53,17 @@ defineEmits(['refresh', 'download'])
 
 .base-image {
   width: 100%;
+  min-width: 50vw;
+  min-height: 50vh;
+  border-radius: 12px;
+  background-color: aliceblue;
   position: relative;
   &__img {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
     border-radius: 12px;
   }
   &__svg {
