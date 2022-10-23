@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import {ref} from 'vue'
-
+import { useProcess } from 'src/composables/useProcess'
 import BaseImage from 'src/ui/images/base-image.vue'
 import BaseBackdrop from 'src/ui/backdrop/base-backdrop.vue'
 import BaseButton from 'src/ui/buttons/base-button.vue'
 import BaseSwitcher, {SwitchItem} from 'src/ui/switcher/base-switcher.vue'
+
+const {image} = useProcess()
 
 const switchItems = ref<SwitchItem[]>([
   {
@@ -19,6 +21,11 @@ const switchItems = ref<SwitchItem[]>([
   }]
 )
 const isOpen = ref(true)
+
+const downloadImage = () => {
+  // code
+}
+
 </script>
 
 <template>
@@ -29,11 +36,11 @@ const isOpen = ref(true)
       </div>
     </template>
     <div class="download-backdrop__content">
-      <BaseImage class="download-backdrop__img" src="https://i.redd.it/2unqm5kmwwn91.jpg" />
+      <BaseImage class="download-backdrop__img" :src="image || 'https://i.redd.it/2unqm5kmwwn91.jpg'" />
       <div class="download-backdrop__switcher-wrapper">
         <BaseSwitcher class="download-backdrop__switcher" :items="switchItems"/>
       </div>
-      <BaseButton yellow>
+      <BaseButton @click="downloadImage" class="download-backdrop__btn" yellow>
         Скачать
       </BaseButton>
     </div>
@@ -59,7 +66,10 @@ const isOpen = ref(true)
     padding: 16px;
   }
   &__img {
-    padding: 0 52px;
+    margin: 0 52px;
+  }
+  &__btn {
+    margin-bottom: 16px;
   }
   &__switcher {
     margin-top: 16px;
