@@ -3,7 +3,7 @@
     <div class="top-black-bar" :style="`background-color: ${isDark ? 'black' : 'white' } ;`">
     </div>
     <q-layout view="lHh Lpr lFf" >
-      <AppHeader/>
+      <AppHeaderFeautre />
       <q-page-container>
         <q-page class="row justify-evenly">
           <router-view v-slot="{ Component }">
@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import AppHeader from 'src/ui/layout/app-header.vue'
+import AppHeaderFeautre from 'src/features/app-layout/app-header-feautre.vue';
 import { useDark } from '@vueuse/core'
 const isDark = useDark()
 </script>

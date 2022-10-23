@@ -1,16 +1,22 @@
 <script setup lang="ts">
-const title = 'Логотип'
+
+interface Props {
+  title: string,
+  showBackBtn: boolean,
+}
+defineEmits(['backNavigate'])
+defineProps<Props>()
 </script>
 
 <template>
   <div class="app-header">
     <q-header bordered class="bg-white text-primary">
       <q-toolbar>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg v-if="showBackBtn" @click="$emit('backNavigate')" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M16.707 2.79289C17.0975 3.18342 17.0975 3.81658 16.707 4.20711L8.91406 12L16.707 19.7929C17.0975 20.1834 17.0975 20.8166 16.707 21.2071C16.3164 21.5976 15.6833 21.5976 15.2927 21.2071L7.49985 13.4142C6.7188 12.6332 6.7188 11.3668 7.49985 10.5858L15.2927 2.79289C15.6833 2.40237 16.3164 2.40237 16.707 2.79289Z" fill="black"/>
         </svg>
         <q-toolbar-title>
-          <span v-if="false" class="app-header__title">
+          <span v-if="title" class="app-header__title">
             {{ title }}
           </span>
         </q-toolbar-title>
