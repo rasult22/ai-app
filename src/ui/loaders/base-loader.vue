@@ -4,7 +4,7 @@
   <div class="spinner__wrapper">
     <q-spinner-cube
       class="spinner"
-      color="pink"
+      color="black"
       size="3em"
     />
   </div>

@@ -33,5 +33,5 @@ router.beforeEach((to, from, next) => {
 </script>
 
 <template>
-  <AppHeader @back-navigate="onBackNavigate" :title="title" :show-back-btn="showBackBtn"></AppHeader>
+  <AppHeader @back-navigate="onBackNavigate" @profile-clicked="$router.push('/profile')" :title="title" :show-back-btn="showBackBtn"></AppHeader>
 </template>
