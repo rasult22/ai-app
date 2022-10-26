@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import BaseButton from 'src/ui/buttons/base-button.vue';
-
+import ProfileSavedArtsFeature from 'src/features/profile-saved-arts/profile-saved-arts-feature.vue';
 const isAuthorized = true
 </script>
 
@@ -29,14 +29,14 @@ const isAuthorized = true
         </BaseButton>
       </div>
     </div>
-    <div class="profile-auth">
+    <div  class="profile-auth">
       <div class="profile-auth__user">
         <img class="profile-auth__img" :src="require('src/assets/user-profile.png')" alt="">
         <div class="profile-auth__user-title">
           @username2227994
         </div>
       </div>
-      <div class="profile-auth__no-works">
+      <div v-if="false" class="profile-auth__no-works">
         <img class="profile-auth__no-works-image" :src="require('src/assets/pictures.png')" alt="">
         <div class="profile-auth__title">
           У вас пока нет художественных работ
@@ -45,6 +45,7 @@ const isAuthorized = true
           <BaseButton yellow>Создать</BaseButton>
         </div>
       </div>
+      <ProfileSavedArtsFeature v-else></ProfileSavedArtsFeature>
     </div>
   </div>
 </template>
