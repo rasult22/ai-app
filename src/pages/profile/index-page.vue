@@ -32,6 +32,18 @@ const isAuthorized = true
     <div class="profile-auth">
       <div class="profile-auth__user">
         <img class="profile-auth__img" :src="require('src/assets/user-profile.png')" alt="">
+        <div class="profile-auth__user-title">
+          @username2227994
+        </div>
+      </div>
+      <div class="profile-auth__no-works">
+        <img class="profile-auth__no-works-image" :src="require('src/assets/pictures.png')" alt="">
+        <div class="profile-auth__title">
+          У вас пока нет художественных работ
+        </div>
+        <div class="profile-auth__no-works-btn">
+          <BaseButton yellow>Создать</BaseButton>
+        </div>
       </div>
     </div>
   </div>
@@ -74,10 +86,51 @@ const isAuthorized = true
   }
   &-auth {
     &__user {
-
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &-title {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+        letter-spacing: 0px;
+        text-align: center;
+      }
     }
     &__img {
-      max-width: 48px;
+      max-width: 68px;
+      img {
+        width: 100%;
+      }
+    }
+    &__title {
+      font-family: Roboto;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: 0px;
+      max-width: 328px;
+      text-align: center;
+    }
+    &__no-works{
+      padding-top: 20vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &-image {
+        max-width: 200px;
+        text-align: center;
+      }
+      &-btn {
+        padding: 16px;
+        position: absolute;
+        bottom: 16px;
+        width: 100%;
+      }
     }
   }
 }
